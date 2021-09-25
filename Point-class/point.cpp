@@ -67,7 +67,7 @@ Point& Point::operator += (const Point &p)
 
 /// FUNCTIONS
 
-void Point::Point(int x, int y)
+void Point::setPoint(int x, int y)
 {
     if(x <= 768 && y <= 1024)
     {
