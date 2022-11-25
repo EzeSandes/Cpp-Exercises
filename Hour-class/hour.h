@@ -2,18 +2,18 @@
 
 using namespace std;
 
-class Hora
+class Hour
 {
     private:
-        int horas,
-            minutos,
-            segundos;
+        int hours,
+            minutes,
+            seconds;
 
     public:
-        Hora(): horas(0), minutos(0), segundos(0) {};
-        Hora(int segundos);
+        Hour(): hours(0), minutes(0), seconds(0) {};
+        Hour(int seconds);
 
-        friend ostream& operator << (ostream &sal, const Hora &obj);
-        Hora operator + (const Hora &obj);
-        Hora& operator ++ ();
+        friend ostream& operator << (ostream &exit, const Hour &obj);
+        Hour operator + (const Hour &obj);
+        Hour& operator ++ ();
 };
