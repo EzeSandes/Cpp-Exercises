@@ -1,40 +1,40 @@
-#include "Hora.h"
-#include "HoraExc.h"
+#include "Hour.h"
+#include "HourExc.h"
 
 
-Hora::Hora(int segundos)
+Hour::Hour(int seconds)
 {
-    if(segundos < 0)
-        throw HoraExc("ERROR -- Segundos negativos.");
+    if(seconds < 0)
+        throw HourExc("ERROR -- negative seconds.");
 
-    segundos %= 60 * 60 * 24;
+    seconds %= 60 * 60 * 24;
 
-    this->horas = segundos / 3600;
-    this->minutos = (segundos % 3600) / 60;
-    this->segundos = (segundos % 3600) % 60;
+    this->hours = seconds / 3600;
+    this->minutes = (seconds % 3600) / 60;
+    this->seconds = (seconds % 3600) % 60;
 }
 
-ostream& operator << (ostream &sal, const Hora &obj)
+ostream& operator << (ostream &exit, const Hour &obj)
 {
-    return sal << obj.horas << ":" << obj.minutos << ":" << obj.segundos;
-}
-
-////////////////////////////////
-
-Hora Hora :: operator + (const Hora &obj)
-{
-    int cantSegTot = (this->horas + obj.horas) * 3600 +
-                    (this->minutos + obj.minutos) * 60 +
-                    this->segundos + obj.segundos;
-
-    return Hora(cantSegTot);
+    return exit << obj.hours << ":" << obj.minutes << ":" << obj.seconds;
 }
 
 ////////////////////////////////
 
-Hora& Hora :: operator ++ ()
+Hour Hour :: operator + (const Hour &obj)
 {
-    return *this = Hora(this->horas * 3600 + this->minutos * 60 + this->segundos + 1);
+    int totalNumSeconds = (this->hours + obj.hours) * 3600 +
+                    (this->minutes + obj.minutes) * 60 +
+                    this->seconds + obj.seconds;
+
+    return Hour(totalNumSeconds);
+}
+
+////////////////////////////////
+
+Hour& Hour :: operator ++ ()
+{
+    return *this = Hour(this->hours * 3600 + this->minutes * 60 + this->seconds + 1);
 }
 
 ////////////////////////////////
